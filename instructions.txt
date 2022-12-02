@@ -1,0 +1,3 @@
+The goal of the game is to collect enough jumps to get to the platform floating above. You can get more jumps for every 10 enemies you kill.
+
+Link to github: https://github.com/Krielies/PlatformerProject/settings/access
