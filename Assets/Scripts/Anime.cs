@@ -39,5 +39,7 @@ public class Anime : MonoBehaviour
             Anim.SetTrigger("Jump");
         }
         
+
+        
     }
 }

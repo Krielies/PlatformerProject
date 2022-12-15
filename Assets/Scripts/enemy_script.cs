@@ -7,8 +7,9 @@ public class enemy_script : MonoBehaviour
     Rigidbody2D rgb2d;
     public float direction = 1f;
     public float movementSpeed = 5f, jumpHeight;
-    public EdgeCollider2D beakUsedForTurning;
+    public EdgeCollider2D beakUsedForTurning, otherBeak;
     public Vector3 rotation = new Vector3(0, 180, 0);
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,13 @@ public class enemy_script : MonoBehaviour
     {
         if (collision.gameObject.tag == "Knife")
         {
-            Destroy(gameObject);
+            beakUsedForTurning.enabled = false;
+            otherBeak.enabled = false;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+            gameObject.GetComponent<AnimatorScript>().Death();
+
+            //Destroy(gameObject);
         }
         if (collision.CompareTag("JumpPad"))
         {
