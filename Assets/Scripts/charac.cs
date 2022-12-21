@@ -48,13 +48,15 @@ public class charac : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if(collectedJumps >= 10)
         {
             amountOfJumps += 1;
             collectedJumps -= 10;
         }
-        transform.position += Vector3.right * Input.GetAxis("Horizontal") * Time.deltaTime*_speed;
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
         if (Input.GetKeyDown(jump) && canJump > 0 )
         {
             AudioManagerScript.PlaySound("Jump");
@@ -78,6 +80,11 @@ public class charac : MonoBehaviour
         if (how_m_collect > 0)
         {
             print(how_m_collect);
-        }
+        }        
+    }
+    void FixedUpdate()
+    {
+        transform.position += Vector3.right * Input.GetAxis("Horizontal") * Time.deltaTime*_speed;
+
     }
 }
